@@ -1,0 +1,129 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body */
+body {
+    font-family: "Courier New", monospace;
+    background: #0a0e27;
+    color: #00ff41;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container principal */
+.container {
+    background: #1a1f3a;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.3), inset 0 0 20px rgba(0, 255, 65, 0.1);
+    max-width: 700px;
+    width: 100%;
+    border: 2px solid #00ff41;
+}
+
+/* Título */
+h1 {
+    color: #00ff41;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.2em;
+    text-shadow: 0 0 10px #00ff41;
+    letter-spacing: 2px;
+}
+
+/* Texto */
+p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00cc33;
+    font-size: 1.1em;
+}
+
+/* Lista de plataformas */
+.platform-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.platform-links li {
+    margin: 20px 0;
+}
+
+.platform-links a {
+    display: block;
+    padding: 20px;
+    background: linear-gradient(135deg, #0f4d2e 0%, #1a6b3f 100%);
+    color: #00ff41;
+    text-decoration: none;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+    letter-spacing: 1px;
+}
+
+.platform-links a:hover {
+    background: linear-gradient(135deg, #1a6b3f 0%, #0f4d2e 100%);
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
+    transform: translateY(-3px);
+    color: #00ff88;
+}
+
+/* Sección de integrantes */
+.integrantes {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #00ff41;
+    text-align: center;
+}
+
+.integrantes h3 {
+    color: #00ff41;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-shadow: 0 0 8px #00ff41;
+}
+
+.integrantes ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.integrantes li {
+    margin: 8px 0;
+    color: #00cc33;
+    font-size: 1em;
+}
+
+.integrantes li::before {
+    content: "> ";
+    color: #00ff41;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1a1f3a;
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    color: #00ff41;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-shadow: 0 0 5px #00ff41;
+}
