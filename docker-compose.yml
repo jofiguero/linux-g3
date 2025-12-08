@@ -14,6 +14,7 @@ services:
     depends_on:
       - moodle
       - wordpress
+      - hangman
     networks:
       - proyecto
     restart: unless-stopped
@@ -73,6 +74,24 @@ services:
         define('FORCE_SSL_ADMIN', false);
     volumes:
       - wordpress_data:/var/www/html
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - proyecto
+    restart: unless-stopped
+
+  # Aplicación Hangman (App personalizada)
+  hangman:
+    build: ./app
+    container_name: grupo3-hangman
+    environment:
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_USER=hangman_user
+      - DB_PASSWORD=hangman_pass
+      - DB_NAME=hangman_db
+      - PORT=3000
     depends_on:
       mariadb:
         condition: service_healthy
