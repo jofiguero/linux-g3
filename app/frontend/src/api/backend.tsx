@@ -1,4 +1,4 @@
 // Incluye acá la url de tu backend
-export const backend = "/api";
+export const backend = "/app/api";
 
 
