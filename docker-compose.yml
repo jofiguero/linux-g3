@@ -49,7 +49,8 @@ services:
       MOODLE_DATABASE_USER: moodle_user
       MOODLE_DATABASE_PASSWORD: moodle_pass
       MOODLE_DATABASE_NAME: moodle_db
-      MOODLE_URL: "http://localhost:8080/moodle"
+      MOODLE_URL: "https://grupo3.ifigueroap.cl/moodle"
+
     volumes:
       - moodledata:/var/moodledata
     depends_on:
@@ -69,9 +70,9 @@ services:
       WORDPRESS_DB_PASSWORD: wp_pass
       WORDPRESS_DB_NAME: wp_db
       WORDPRESS_CONFIG_EXTRA: |
-        define('WP_HOME', 'http://localhost:8080/wp');
-        define('WP_SITEURL', 'http://localhost:8080/wp');
-        define('FORCE_SSL_ADMIN', false);
+        define('WP_HOME', 'https://grupo3.ifigueroap.cl/wp');
+        define('WP_SITEURL', 'https://grupo3.ifigueroap.cl/wp');
+        define('FORCE_SSL_ADMIN', true);
     volumes:
       - wordpress_data:/var/www/html
     depends_on:
