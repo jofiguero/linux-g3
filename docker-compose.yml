@@ -3,11 +3,14 @@ services:
   proxy:
     image: nginx:alpine
     container_name: grupo3-proxy
+    ports:
+      - "8080:80"
+      - "8443:443"
     volumes:
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./static:/usr/share/nginx/html:ro
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
     depends_on:
       - moodle
       - wordpress
@@ -104,5 +107,4 @@ volumes:
 
 networks:
   proyecto:
-    external: true
-    name: proyecto
+    driver: bridge
