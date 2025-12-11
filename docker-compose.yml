@@ -9,8 +9,8 @@ services:
     volumes:
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./static:/usr/share/nginx/html:ro
-      - ./certbot/www:/var/www/certbot:ro
-      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
     depends_on:
       - moodle
       - wordpress
@@ -99,6 +99,17 @@ services:
       - proyecto
     restart: unless-stopped
 
+  # Certbot para certificados SSL
+  certbot:
+    image: certbot/certbot
+    container_name: grupo3-certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    networks:
+      - proyecto
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
 volumes:
   dbdata:
   moodledata:
@@ -106,4 +117,5 @@ volumes:
 
 networks:
   proyecto:
-    driver: bridge
+    external: true
+    name: proyecto
