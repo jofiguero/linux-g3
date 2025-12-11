@@ -1,5 +1,14 @@
 -- Script de inicialización para MariaDB
--- Crea las bases de datos y usuarios para WordPress y Hangman
+-- Crea las bases de datos y usuarios para WordPress, Moodle y Hangman
+
+-- Crear base de datos para Moodle
+CREATE DATABASE IF NOT EXISTS moodle_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Crear usuario para Moodle
+CREATE USER IF NOT EXISTS 'moodle_user'@'%' IDENTIFIED BY 'moodle_pass';
+
+-- Otorgar privilegios a Moodle
+GRANT ALL PRIVILEGES ON moodle_db.* TO 'moodle_user'@'%';
 
 -- Crear base de datos para WordPress
 CREATE DATABASE IF NOT EXISTS wp_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
